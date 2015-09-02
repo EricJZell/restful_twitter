@@ -1,0 +1,24 @@
+
+<h1>Here are the latest tweets from <%=user_info["name"]%></h1>
+<div class="row">
+  <form action = "/tweets" method = "get">
+      Get tweets from a different username: <input type="text" name="user_search">
+      <input type="submit" value="Search">
+  </form>
+</div>
+<div class="row">
+  <div class="small-1 medium-2 columns">.</div>
+  <div class="medium-8 small-10 columns">
+    <ul>
+      <% tweets.each do  |tweet| %>
+        <div class="row">
+          <li class="tweet">
+            <img class="twitter-img small-2 columns" src="<%=user_info['profile_image_url']%>">
+            <p class="small-9 columns"><%= tweet["text"] %></p>
+          </li>
+      </div>
+      <% end %>
+    </ul>
+  </div>
+  <div class="small-1 medium-2 columns">.</div>
+</div>
