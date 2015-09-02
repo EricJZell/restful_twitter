@@ -1,10 +1,6 @@
 def get_tweets(username)
-  consumer_key = OAuth::Consumer.new(
-      "9ezY3Nqc5r5efWWtOCya8GRuS",
-      "ebqH9Lg5O8oz9S19RCCAKNLiOtj6W3bKBvGfcF8ZvTfUCevbvH")
-  access_token = OAuth::Token.new(
-      "1471081286-fXscCtqauyxMFJbGiQxVbMAomNFoI6xqUssNAyc",
-      "Qysg9Iv1VtWoi6s90lybNlMDKnRHlOkb0FERkldfZPXHH")
+  consumer_key = OAuth::Consumer.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_KEY_SECRET'])
+  access_token = OAuth::Token.new(ENV['ACCESS_TOKEN'], ENV['ACCESS_TOKEN_SECRET'])
   baseurl = "https://api.twitter.com"
   path = "/1.1/statuses/user_timeline.json"
   query = URI.encode_www_form(
@@ -27,12 +23,8 @@ def get_tweets(username)
 end
 
 def get_user_info(username)
-  consumer_key = OAuth::Consumer.new(
-      "9ezY3Nqc5r5efWWtOCya8GRuS",
-      "ebqH9Lg5O8oz9S19RCCAKNLiOtj6W3bKBvGfcF8ZvTfUCevbvH")
-  access_token = OAuth::Token.new(
-      "1471081286-fXscCtqauyxMFJbGiQxVbMAomNFoI6xqUssNAyc",
-      "Qysg9Iv1VtWoi6s90lybNlMDKnRHlOkb0FERkldfZPXHH")
+  consumer_key = OAuth::Consumer.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_KEY_SECRET'])
+  access_token = OAuth::Token.new(ENV['ACCESS_TOKEN'], ENV['ACCESS_TOKEN_SECRET'])
   baseurl = "https://api.twitter.com"
   path = "/1.1/users/show.json"
   query = URI.encode_www_form(
