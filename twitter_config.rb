@@ -1,12 +1,12 @@
-require_relative 'keys'
+require 'dotenv'
 
 def get_tweets(username)
   consumer_key = OAuth::Consumer.new(
-      CONSUMER_KEY,
-      CONSUMER_KEY_SECRET)
+      ENV["CONSUMER_KEY"],
+      ENV["CONSUMER_KEY_SECRET"])
   access_token = OAuth::Token.new(
-      ACCESS_TOKEN,
-      ACCESS_TOKEN_SECRET)
+      ENV["ACCESS_TOKEN"],
+      ENV["ACCESS_TOKEN_SECRET"])
   baseurl = "https://api.twitter.com"
   path = "/1.1/statuses/user_timeline.json"
   query = URI.encode_www_form(
@@ -30,11 +30,11 @@ end
 
 def get_user_info(username)
   consumer_key = OAuth::Consumer.new(
-      CONSUMER_KEY,
-      CONSUMER_KEY_SECRET)
+      ENV["CONSUMER_KEY"],
+      ENV["CONSUMER_KEY_SECRET"])
   access_token = OAuth::Token.new(
-      ACCESS_TOKEN,
-      ACCESS_TOKEN_SECRET)
+      ENV["ACCESS_TOKEN"],
+      ENV["ACCESS_TOKEN_SECRET"])
   baseurl = "https://api.twitter.com"
   path = "/1.1/users/show.json"
   query = URI.encode_www_form(

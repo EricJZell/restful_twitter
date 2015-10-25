@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'dotenv'
+Dotenv.load
 require 'pry'
 require 'pg'
 require 'rubygems'
